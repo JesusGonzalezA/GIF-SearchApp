@@ -1,0 +1,48 @@
+* {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+body {
+    padding: 60px;
+    color: var(--white);
+    text-align: center;
+    background: linear-gradient(270deg, #485abe, #602787);
+    background-size: 400% 400%;
+
+    animation: colortransition 15s ease infinite alternate;
+}
+
+@keyframes colortransition {
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+}
+
+:root{
+    --white: #FFFFFF;
+    --black: #332B2B;
+    --red: rgb(250, 27, 27);
+    --orange: rgb(250, 150, 27);
+    --background-color: var(--white);
+    --opposite-color: var(--black);
+    --grey: rgb(50,50,50);
+    --green: rgb(0, 224, 68);
+}
+
+
+/*----------------------------------------------------------------------------*/
+/*   ASIDE                                                                    */
+/*----------------------------------------------------------------------------*/
+aside {
+    position: fixed;
+    left: 0;
+    top: 40%;
+}
+
+.social-bar {
+    font-size: 2.0rem;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    z-index: 100;
+}
