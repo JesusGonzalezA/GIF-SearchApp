@@ -2,9 +2,9 @@
 /*  SOCIAL MEDIA                                                              */
 /*----------------------------------------------------------------------------*/
 
-
 .icon {
     text-decoration: none;
+    
     padding: 10px;
     margin-right: 15px;
     transition: all 0.15s;
@@ -13,6 +13,7 @@
 }
 
 .icon:hover {
+    text-align: right;
     margin-right: 0px;
 }
 
