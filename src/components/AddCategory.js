@@ -45,9 +45,6 @@ export const AddCategory = ( {setCategories} ) => {
 AddCategory.propTypes = {
     setCategories: PropTypes.func.isRequired
 }
-
-AddCategory.defaultProps = {
-}
 //**************************************************************************
 
 export default AddCategory;
