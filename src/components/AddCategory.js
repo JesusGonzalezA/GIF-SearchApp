@@ -22,7 +22,7 @@ export const AddCategory = ( {setCategories} ) => {
 
         if ( (inputValue.trim()).length) {
             
-            setCategories(ctg => [...ctg, inputValue]);         
+            setCategories(ctg => [inputValue,...ctg]);         
             setInputValue(''); 
         }
     }

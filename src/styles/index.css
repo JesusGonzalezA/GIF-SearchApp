@@ -1,31 +1,23 @@
 * {
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
     box-sizing: border-box;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 body {
+    background: #032a52;
+    color: white;
     padding: 60px;
-    color: var(--white);
-    background: linear-gradient(270deg, #485abe, #602787);
-    background-size: 400% 400%;
-    animation: colortransition 15s ease infinite alternate;
-}
-
-@keyframes colortransition {
-    0%{background-position:0% 50%}
-    50%{background-position:100% 50%}
-    100%{background-position:0% 50%}
 }
 
 :root{
-    --white: #FFFFFF;
-    --black: #332B2B;
-    --red: rgb(250, 27, 27);
-    --orange: rgb(250, 150, 27);
     --background-color: var(--white);
-    --opposite-color: var(--black);
-    --grey: rgb(50,50,50);
+    --black: #332B2B;
     --green: rgb(0, 224, 68);
+    --grey: rgb(50,50,50);
+    --opposite-color: var(--black);
+    --orange: rgb(250, 150, 27);
+    --red: rgb(250, 27, 27);
+    --white: #FFFFFF;
 }
 
 /*----------------------------------------------------------------------------*/
@@ -39,29 +31,28 @@ header {
 /*   FORM                                                                     */
 /*----------------------------------------------------------------------------*/
 form {
-    text-align: center;
     font-size: 1.2rem;
-    margin: 1rem;
-    
+    margin: 1rem;    
+    text-align: center;
 }
 
 input {
-    width: 20%;
+    border: 0.05rem solid #fff;
+    border-radius: 0.5rem;
+    box-shadow: inset 0px 1px 1px rgba(0, 0, 0, 0.33);
+    color: rgb(56, 55, 55);
     min-width: 200px;
     padding: 0.5rem;
-    border-radius: 0.5rem;
-    border: 0.05rem solid #fff;
-    box-shadow: inset 0px 1px 1px rgba(0, 0, 0, 0.33);
-    color: rgb(56, 55, 55)
+    width: 20%;
 }
 
 button {
-    padding: 0.5rem;
-    border-radius: 0.5rem;
-    border: 0.05rem solid #fff;
-    box-shadow: inset 0px 1px 1px rgba(0, 0, 0, 0.33);
     background-color: #32c336;
+    border: 0.05rem solid #fff;
+    border-radius: 0.5rem;
+    box-shadow: inset 0px 1px 1px rgba(0, 0, 0, 0.33);
     color: var(--white);
+    padding: 0.5rem;
 }
 
 button:hover {
@@ -72,22 +63,66 @@ button:hover {
 /*----------------------------------------------------------------------------*/
 /*   LIST                                                                     */
 /*----------------------------------------------------------------------------*/
-#list {
-    transform: translateX(40%);
+#general_list {
 }
+
+.gifgrid {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.card {
+    align-content: center;
+    border-radius: 6px;
+    box-shadow: 3px #1389FD;
+    margin: 0px 20px 20px 0px;
+    text-align: center;
+    z-index: 0;
+}
+
+.card:hover {
+    transform: scale(1.2);
+    z-index: 1;
+}
+
+.card p{
+    padding: 5px;
+}
+
+.card img {
+    max-height: 170px;
+}
+
+/*----------------------------------------------------------------------------*/
+/*   CATEGORY SEPARATOR                                                       */
+/*----------------------------------------------------------------------------*/
+.category {
+    border: solid white 1px;
+    border-radius: 5px;
+    margin: 20px;
+    padding: 20px;
+    text-align: center;
+}
+
+.category h2 {
+    font-size: 2rem;
+}
+
 /*----------------------------------------------------------------------------*/
 /*   ASIDE                                                                    */
 /*----------------------------------------------------------------------------*/
 aside {
-    position: fixed;
     left: 0;
+    position: fixed;
     top: 40%;
 }
 
 .social-bar {
-    font-size: 2.0rem;
     display: flex;
-    flex-wrap: wrap;
     flex-direction: column;
+    flex-wrap: wrap;
+    font-size: 2.0rem;
     z-index: 100;
 }
