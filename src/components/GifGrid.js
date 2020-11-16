@@ -12,7 +12,12 @@ import PropTypes from 'prop-types';
 export const GifGrid = ( {category} ) => {
 
     //--------------------------------------------------------------------------
-    const [count, setCount] = useState(0);
+    const [images, setImages] = useState([]);
+
+    //--------------------------------------------------------------------------
+    useEffect(() => {
+        getGifs();
+    }, [])
 
     //--------------------------------------------------------------------------
     const getGifs = async() => {
@@ -22,12 +27,13 @@ export const GifGrid = ( {category} ) => {
         //Params
         const limit = 10;
         const queryApiKey = 'api_key=9jplbxKhPdDDXYnbjKuZ2NFJPVPnmUeW';
-        const theme = 'cheese';
+        const theme = category;
 
         //URL    
         const queryLimit = 'limit=' + limit;
         const queryTheme = 'q=' + theme;
         const url = `${endpoint}${queryLimit}&&${queryTheme}&&${queryApiKey}`;
+        
         const resp = await fetch(url);
         const {data} = await resp.json();
 
@@ -40,18 +46,23 @@ export const GifGrid = ( {category} ) => {
             }
         })
         
-        console.log(gifs);
+        //Actualizar las imágenes
+        setImages(gifs);
     }
-    //--------------------------------------------------------------------------
-    useEffect(() => {
-        getGifs();
-    }, [])
+   
     //--------------------------------------------------------------------------
     return (
         <>
             <h2>{category}</h2>
-            <h3>{count}</h3>
-            <button onClick={()=>setCount(count+1)}></button>
+            <ol>
+                {
+                    images.map( ({id, title}) => (
+                        <li key={id}> 
+                            {title.trim()===''? 'Without title' : title} 
+                        </li>
+                    ))
+                }
+            </ol>
         </>
     )
     //--------------------------------------------------------------------------
