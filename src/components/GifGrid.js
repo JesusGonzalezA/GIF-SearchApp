@@ -6,6 +6,7 @@
 
 import React, {useState, useEffect } from 'react'
 import PropTypes from 'prop-types';
+import GifGridItem from './GifGridItem';
 
 //**************************************************************************
 
@@ -54,15 +55,17 @@ export const GifGrid = ( {category} ) => {
     return (
         <>
             <h2>{category}</h2>
-            <ol>
-                {
-                    images.map( ({id, title}) => (
-                        <li key={id}> 
-                            {title.trim()===''? 'Without title' : title} 
-                        </li>
-                    ))
-                }
-            </ol>
+            {
+                images.map( (img) => (
+                   <ol>
+                    <GifGridItem
+                        key={img.id} 
+                        {...img}
+                    />
+                   </ol> 
+                     
+                ))
+            }
         </>
     )
     //--------------------------------------------------------------------------
