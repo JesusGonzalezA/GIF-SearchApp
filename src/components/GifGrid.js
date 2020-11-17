@@ -22,7 +22,7 @@ export const GifGrid = ( {category} ) => {
     //--------------------------------------------------------------------------
     return (
         <div class='category'>  
-            <h2>{category}</h2>
+            <h2 className='animate__animated animate__fadeInDown'>{category}</h2>
             
             <div className='gifgrid'>
                 {loading && <div className='preloader'></div>}
