@@ -9,7 +9,7 @@ import PropTypes from 'prop-types';
 
 //**************************************************************************
 
-export const AddCategory = ( {setCategories} ) => {
+export const AddCategory = ( { setCategories} ) => {
 
     const [inputValue, setInputValue] = useState('');
 
@@ -21,9 +21,8 @@ export const AddCategory = ( {setCategories} ) => {
         e.preventDefault();   
 
         if ( (inputValue.trim()).length) {
-            
             setCategories(ctg => [inputValue,...ctg]);         
-            setInputValue(''); 
+            setInputValue('');
         }
     }
 
