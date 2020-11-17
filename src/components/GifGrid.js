@@ -4,23 +4,17 @@
 
 //**************************************************************************
 
-import React, {useState, useEffect } from 'react'
+import React from 'react'
 import PropTypes from 'prop-types';
+import { useFetchGifs } from '../hooks/useFetchGifs';
 import GifGridItem from './GifGridItem';
-import { getGifs } from '../helpers/getGifs';
 
 //**************************************************************************
 
 export const GifGrid = ( {category} ) => {
 
     //--------------------------------------------------------------------------
-    const [images, setImages] = useState([]);
-
-    //--------------------------------------------------------------------------
-    useEffect(() => {
-        getGifs(category)
-            .then(setImages);
-    }, [category])
+    const { images, loading } = useFetchGifs(category);
 
     //--------------------------------------------------------------------------
     
@@ -31,8 +25,9 @@ export const GifGrid = ( {category} ) => {
             <h2>{category}</h2>
             
             <div className='gifgrid'>
+                {loading && <div className='preloader'></div>}
                 {
-                    images.map( (img) => (
+                   images.map( (img) => (
                         <GifGridItem
                             key={img.id} 
                             {...img}
