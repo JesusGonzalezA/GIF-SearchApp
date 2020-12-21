@@ -6,8 +6,29 @@ import '@testing-library/jest-dom'
 describe('Components -> AddCategory', () => {
     
     const setCategories = jest.fn();
+
+    // Auxiliar vars
     let wrapper = shallow( <AddCategory setCategories={setCategories}/>);
     const input = wrapper.find('input');
+
+    // Auxiliar functions
+    const simulateSubmit = () => {
+        wrapper.find('form').simulate('submit', {
+            preventDefault () {
+
+            }
+        })
+    }
+    const simulateInputChange = () => {
+        const value = 'Hola mundo'
+
+        input.simulate('change', {
+            target:
+            {
+                value: value
+            }
+        });
+    }
 
     beforeEach( () => {
         jest.clearAllMocks();
@@ -18,28 +39,20 @@ describe('Components -> AddCategory', () => {
         expect(wrapper).toMatchSnapshot();
     })
 
-    test('should change the input', () => {
-        
-        const value = 'Hola mundo'
-
-        input.simulate('change', {
-            target:
-            {
-                value: value
-            }
-        });
-    })
-
     test('shouldnt post the information if it is empty', () => {
 
-        wrapper.find('form').simulate('submit', {
-            preventDefault () {
-
-            }
-        })
+        simulateSubmit();
 
         expect(setCategories).not.toHaveBeenCalled();
     })
+
+    test('should clean the input after it is submitted', () => {
+        
+        simulateInputChange();
+        simulateSubmit();
+        expect(input.prop('value')).toBe('')
+    })
+    
     
     
     
