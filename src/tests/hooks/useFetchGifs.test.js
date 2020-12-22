@@ -6,9 +6,11 @@ describe('Hooks -> useFetchGifs', () => {
     
     test('should return the initial state', () => {
         
-        const resp = renderHook( () => useFetchGifs('') );
-        console.log(resp);
-        
+        const { result } = renderHook( () => useFetchGifs('') );
+        const { images, loading } = result.current;
+
+        expect( images ).toStrictEqual( [] );
+        expect( loading ).toBe( true )
     })
     
 })
