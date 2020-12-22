@@ -4,10 +4,20 @@ import GifExpertApp from '../GifExpertApp'
 
 describe('GifExpertApp', () => {
     
-    const wrapper = shallow(<GifExpertApp />)
+    
 
     test('should match with the snapshot', () => {
+        const wrapper = shallow(<GifExpertApp />)
         expect(wrapper).toMatchSnapshot(); 
     })
+
+    test('should show a category list', () => {
+        const categories = ['New', 'Other'];
+        const wrapper = shallow(<GifExpertApp defaultCategories={ categories } />)
+
+        expect( wrapper ).toMatchSnapshot();
+        expect( wrapper.find('GifGrid').length ).toBe( categories.length );
+    })
+    
     
 })
