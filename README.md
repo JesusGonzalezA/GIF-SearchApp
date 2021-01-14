@@ -11,7 +11,7 @@ https://jesusgonzaleza.github.io/GIF-SearchApp/
 :+1: Hooks \
 :+1: Animations \
 :+1: Fetch data from an API \
-:+1: Bootstrap \
+:+1: Pure css \
 :+1: Unit testing 
 
 :microscope: **Tests**: You can find them in src/tests. I used Jest and Enzyme for this issue.
